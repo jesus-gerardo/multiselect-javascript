@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <style>
+        .main{
+            display: flex;
+            flex-direction: column;
+        }
+        .multiselect{
+            position: relative;
+            margin-right: 10px;
+        }
+
+        /* .multiselect > input:focus ~ .option-container {
+            visibility: visible !important;
+        }
+        .multiselect > input:not(:focus) ~ .option-container {
+            visibility: hidden !important;
+        } */
+
+        .option-container{
+            position: absolute;
+            visibility: hidden;
+            width: 100%;
+            height: auto;
+            max-height: 7rem;
+            background-color: white;
+            box-shadow: 2px 2px 5px rgb(118, 118, 118);
+            z-index: 1;
+            margin-top: 1px;
+            overflow-x: auto;
+        }
+        .option-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        .option-container::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
+            width: 2px;
+        }
+        /* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+        .option-container::-webkit-scrollbar-thumb:hover {
+            background: #b3b3b3;
+            box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+        }
+        /* Cambiamos el fondo cuando esté en active */
+        .option-container::-webkit-scrollbar-thumb:active {
+            background-color: #413c3c;
+        }
+        .option-container > option:hover{
+            cursor: pointer;
+            background-color: rgb(194, 194, 194);
+        }
+        .option-container > div:hover{
+            cursor: pointer;
+            background-color: rgb(194, 194, 194);
+        }
+        .input-container{
+            width: 100%;
+        }
+        .open-container{
+            visibility: visible !important;
+        }
+        .selected{
+            background-color: rgb(94, 168, 225);
+        }
+    </style>
+
+    <script>
+        window.option =[
+            {
+                value:"valor 1",
+                precio:0
+            },{
+                value:"valor 2",
+                precio:0
+            },{
+                value:"valor 3",
+                precio:0
+            },{
+                value:"valor 4",
+                precio:0
+            },{
+                value:"valor 5",
+                precio:0
+            },{
+                value:"valor 6",
+                precio:0
+            },{
+                value:"valor 7",
+                precio:0
+            },{
+                value:"valor 8",
+                precio:0
+            },{
+                value:"valor 9",
+                precio:0
+            }
+        ];
+    </script>
+
+    <script type="module">
+        import Multiselect from "./multiselect.js";
+        customElements.define('custom-multiselect', Multiselect);
+    </script>
+
+    <body>
+        <div class="main">
+            <custom-multiselect id="multiselect" options="window.option" persistent="true"></custom-multiselect>
+        </div>
+    </body>
+
+</html>
